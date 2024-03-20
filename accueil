@@ -1,0 +1,64 @@
+<html>
+<head>
+    <title> Projet 1</title>
+    <style>
+        h1{
+            padding: 20px 0px;
+            border-bottom: 2px inset rgb(29, 86, 29); 
+            color: rgb(29, 86, 29);
+            font-size: 50px;
+            text-align: center;
+        }
+        p{
+            font-size:20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h1> Vend tout !</h1>
+        <p> Bienvenue a une site de vente des vetements de second main! Vous etes invitees a chosir des vetements qui vous plaisent et de les acheter faciliment grace a notre site "Vend tout". </p> 
+        <h3> Se connecter ou creer votre compte pour pouvoir facilement efectuez des achats.</h3>
+
+        <br>
+        <form action="produits.php" method="POST">
+            <fieldset>
+            <legend> <b>Se connecter </b></legend>
+            <label id="NumClient"> Enterez votre numero de client</label>
+            <input type="text" id="NumClient" name="NumClient">
+            <button> Se connecter </button>
+            </fieldset>
+        </form>
+        <br>
+        <form action="creation_compte.php" method="POST">
+            <fieldset>
+            <legend> <b>Creer votre compte </b></legend>
+            <label id="prenom"> Entrez votre prenom </label>
+            <input type ="text" id="prenom" name="prenom">
+            <br>
+            <label id="nom"> Entrez votre nom </label>
+            <input type ="text" id="nom" name="nom">
+            <br>
+            <label id="datenaiss"> Entrez votre date de naissance </label>
+            <input type ="date" id="datenaiss" name="datenaiss">
+            <br>
+            <label id="email"> Entrez votre adresse mail </label>
+            <input type ="text" id="email" name="email">
+            <br>
+            <label id="tel"> Entrez votre numero de telephone </label>
+            <input type ="text" id="tel" name="tel">
+            <br>
+            <label id="sexe"> Choissisez votre sexe </label>
+            <select name="sexe">
+                <option value="femme"> Femme </option>
+                <option value="homme"> Homme </option>
+                <option value="autre"> Autre </option>
+            </select>
+            <br>
+            <label id="motpass"> Entrez votre mot de passe </label>
+            <input type ="password" id="motpass" name="motpass">
+            <button> Creer compte </button>
+        </fieldset>
+        </form>
+    </div>
+</body>
