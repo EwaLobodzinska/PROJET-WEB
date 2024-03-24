@@ -1,44 +1,39 @@
 <?php
-
 require('titre.html');
 require('connexion.php');
 
 $sqlclient = "SELECT * FROM client WHERE NumClient = $numClient";
 $resultclient = $conn->query($sqlclient);
 
-if ($resultclient->num_rows > 0) {
-    echo "<h2> D'ici vous pouvez voir tout nos articles proposees </h2>";
-    echo "<button> <a href='panier.php?NumClient=$numClient'> Voir panier </a> </button>";
-    echo "<button> <a href='profil.php?NumClient=$numClient'> Voir profil </a> </button>";
-    echo "<button> <a href='accueil.html'> Deconnecter </a> </button>";
+echo "<h1 style='color:rgb(45, 29, 86);'> Ici vous pouvez voir tous nos articles proposés </h1>";
+echo "<button> <a href='panier.php?NumClient=$numClient'> Voir panier </a> </button>";
+echo "<button> <a href='profil.php?NumClient=$numClient'> Voir profil </a> </button>";
+echo "<button> <a href='accueil.html'> Se déconnecter </a> </button>";
 
-    $sql = "SELECT * FROM produit";
-    $result = $conn->query($sql);
+$sql = "SELECT * FROM produit";
+$result = $conn->query($sql);
 
-    // Vérifier s'il y a des articles récupérés
-    if ($result->num_rows > 0) {
-        // Afficher chaque article récupéré
-        while ($row = $result->fetch_assoc()) {
-            echo "<div>";
-            echo "<h3>" . $row["NomProduit"] . "</h2>";
-            echo "<p> Prix: " . $row["Prix"] . " euros </p>";
-            echo "<p> Categorie: ". $row["Categorie"]."</p>";
+// On vérifie s'il y a des articles a récupérer
+if ($result->num_rows > 0) {
+    // On affiche chaque article récupéré
+    while ($row = $result->fetch_assoc()) {
+        echo "<div>";
+            echo "<h2 style='color:rgb(29, 86, 29);'>".$row["NomProduit"]."</h2>";
+            echo "<img src='".$row["Photo"]."'>";
+            echo "<p><b> Prix: </b>".$row["Prix"]." euros </p>";
+            echo "<p><b> Catégorie: </b>".$row["Categorie"]."</p>";
+            echo "<p><b> Marque: </b>".$row["Marque"]."</p>";
             echo "<form action='ajout_panier.php' method='POST'>";
-            echo "<input type='hidden' name='NumProduit' value='" . $row["NumProduit"] . "'>";
-            echo "<input type='hidden' name='NumClient' value='".$numClient." '>";
-            echo "<button type='submit'>Ajouter au panier</button>";
+                //Pour pouvoir récupérer le numéro de client et produit à la page suivante on utilise: type='hidden'
+                echo "<input type='hidden' name='NumProduit' value='".$row["NumProduit"] . "'>";
+                echo "<input type='hidden' name='NumClient' value='".$numClient." '>";
+                echo "<button type='submit'>Ajouter au panier</button>";
             echo "</form>";
-            echo "</div><br>";
+        echo "</div><br>";
         }
-    } else {
-        echo "Aucun article trouvé.";
-    }
-
 } else {
-    echo "Erreur: Client non trouve";
-    echo "<button> <a href='Accueil.html'> Revenir a la page d'accueil </a> </button>";
-
+    echo "Aucun article trouvé.";
 }
-// Fermer la connexion à la base de données
+
 $conn->close();
 ?>
