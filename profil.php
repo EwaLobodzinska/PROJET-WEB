@@ -2,24 +2,25 @@
 require('titre.html');
 require('connexion.php');
 
+//Pour récupérer des informations sur le client dans le formulaire HTML
 $sql = "SELECT * FROM client WHERE NumClient = $numClient"; 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // Afficher chaque article récupéré
     $row = $result->fetch_assoc();
 }
 
 echo "<button> <a href='produits.php?NumClient=$numClient'> Voir d'articles </a> </button>";
-echo "<button> <a href='panier.php?NumClient=$numClient'> Voir panier </a> </button>  <br><br>";
+echo "<button> <a href='panier.php?NumClient=$numClient'> Voir panier </a> </button>  <br>";
 
-echo "Votre numero de client est: <b>".$numClient."</b><br>";
+echo "<h1 style='color:rgb(45, 29, 86);'> Profil </h1>";
+echo "Votre numéro de client est: <b>".$numClient."</b><br>";
 ?>
 
 <html>
     <body>
     <br>
-        <form action="changer_infos.php" method="POST">
+        <form action="changer_infos.php" method="POST" style="background-color:#b6bfa2;">
             <fieldset>
             <legend> <b>Changer vos informations personnelles </b></legend>
             <label id="prenom"> Votre prenom </label>
@@ -34,7 +35,7 @@ echo "Votre numero de client est: <b>".$numClient."</b><br>";
             <label id="email"> Votre adresse mail </label>
             <input type ="text" id="email" name="email" value="<?php echo $row['Email']; ?>">
             <br>
-            <label id="tel"> Votre numero de telephone </label>
+            <label id="tel"> Votre numéro de telephone </label>
             <input type ="text" id="tel" name="tel" value="<?php echo $row['Telephone']; ?>">
             <br>
             <label id="sexe"> Votre sexe </label>
