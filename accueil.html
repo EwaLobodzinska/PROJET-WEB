@@ -1,7 +1,11 @@
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
     <title> Projet 1</title>
     <style>
+        body{
+            background-color:#b6bfa2;
+        }
         h1{
             padding: 20px 0px;
             border-bottom: 2px inset rgb(29, 86, 29); 
@@ -17,22 +21,24 @@
 <body>
     <div>
         <h1> Vend tout !</h1>
-        <p> Bienvenue a une site de vente des vetements de second main! Vous etes invitees a chosir des vetements qui vous plaisent et de les acheter faciliment grace a notre site "Vend tout". </p> 
-        <h3> Se connecter ou creer votre compte pour pouvoir facilement efectuez des achats.</h3>
-
+        <p> Bienvenue à un site de vente de vêtements outlet! Vous trouverez ici des bonnes marques à un bon prix! Vous êtes invités à choisir des vêtements qui vous plaisent et de les acheter facilement grâce à notre site "Vend tout". </p>
+        <h3> Se connecter ou créer votre compte pour pouvoir facilement effectuer des achats.</h3>
         <br>
-        <form action="produits.php" method="POST">
+        <form action="connexion_compte.php" method="POST">
             <fieldset>
             <legend> <b>Se connecter </b></legend>
-            <label id="NumClient"> Enterez votre numero de client</label>
+            <label id="NumClient"> Entrez votre numéro de client</label>
             <input type="text" id="NumClient" name="NumClient">
+            <br>
+            <label id="motpasse">Entrez votre mot de passe</label>
+            <input type="password" id="motpasse" name="motpasse">
             <button> Se connecter </button>
             </fieldset>
         </form>
         <br>
         <form action="creation_compte.php" method="POST">
             <fieldset>
-            <legend> <b>Creer votre compte </b></legend>
+            <legend> <b>Créer votre compte </b></legend>
             <label id="prenom"> Entrez votre prenom </label>
             <input type ="text" id="prenom" name="prenom">
             <br>
@@ -45,10 +51,10 @@
             <label id="email"> Entrez votre adresse mail </label>
             <input type ="text" id="email" name="email">
             <br>
-            <label id="tel"> Entrez votre numero de telephone </label>
+            <label id="tel"> Entrez votre numéro de telephone </label>
             <input type ="text" id="tel" name="tel">
             <br>
-            <label id="sexe"> Choissisez votre sexe </label>
+            <label id="sexe"> Choisissez votre sexe </label>
             <select name="sexe">
                 <option value="femme"> Femme </option>
                 <option value="homme"> Homme </option>
@@ -57,7 +63,7 @@
             <br>
             <label id="motpass"> Entrez votre mot de passe </label>
             <input type ="password" id="motpass" name="motpass">
-            <button> Creer compte </button>
+            <button> Créer compte </button>
         </fieldset>
         </form>
     </div>
