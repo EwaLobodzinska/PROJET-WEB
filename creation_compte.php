@@ -11,10 +11,19 @@ $tel = $_POST['tel'];
 $sexe = $_POST['sexe'];
 $motpass = $_POST['motpass'];
 
+#Requête SQL pour insérer un nouvel enregistrement dans la table client
 $sql = "INSERT INTO client (NumClient, NomClient, PrenomClient, DateNaissance, Email, Telephone, Sexe, MotDePasse) 
         VALUES (NULL, '$nom', '$prenom', '$datenaissance', '$email','$tel', '$sexe', '$motpass')";
+$result = $conn->query($sql);
 
-if ($conn->query($sql) == TRUE) {
+#On récupère le numéro client qui vient d'être auto incrémenté
+$numClient = $conn->insert_id;
+
+#On créé aussi un panier pour le client
+$sqlpanier = "INSERT INTO panier (NumPanier, NumClient) VALUES ('$numClient', '$numClient')";
+$resultpanier = $conn->query($sqlpanier);
+
+if ($result == TRUE AND $resultpanier == TRUE) {
     echo "<p style='color: red;'>Votre compte a bien été créé.</p>".
             "<button><a href='accueil.html'>Revenir à la page d'accueil</a></button>";
 } else {
