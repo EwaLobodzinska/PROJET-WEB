@@ -16,7 +16,7 @@ if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         echo "<div><h2 style='color: rgb(29, 86, 29);'>".$row["NomProduit"]."</h2>".
             "<img src='".$row["Photo"]."'>".
-            "<p><b>Prix : </b>".$row["Prix"]." euros</p>".
+            "<p><b>Prix : </b>".$row["Prix"]." € </p>".
             "<p><b>Catégorie : </b>".$row["Categorie"]."</p>".
             "<p><b>Marque : </b>".$row["Marque"]."</p>".
             "<p>Quantité disponible en stock : <b>".$row["Stock"]. "</b></p>".
