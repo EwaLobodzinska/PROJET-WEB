@@ -19,6 +19,7 @@ if ($result->num_rows > 0) {
             "<p><b>Prix : </b>".$row["Prix"]." euros</p>".
             "<p><b>Catégorie : </b>".$row["Categorie"]."</p>".
             "<p><b>Marque : </b>".$row["Marque"]."</p>".
+            "<p>Quantité disponible en stock : <b>".$row["Stock"]. "</b></p>".
             "<form action='ajout_panier.php' method='POST'>".
             #Pour récupérer le numéro du produit à la page suivante on utilise : type='hidden'
             "<input type='hidden' name='NumProduit' value='".$row["NumProduit"] . "'>".
