@@ -1,4 +1,4 @@
-<?php
+<?php #LOBODZINSKA et NGUYEN
 require('titre.html');
 require('connexion.php');
 
