@@ -25,7 +25,7 @@ $resultpanier = $conn->query($sqlpanier);
 
 if ($result == TRUE AND $resultpanier == TRUE) {
     echo "<p style='color: red;'>Votre compte a bien été créé.</p>".
-            "<button><a href='accueil.html'>Revenir à la page d'accueil</a></button>";
+            "<button><a href='accueil.html' style='color: black'>Revenir à la page d'accueil</a></button>";
 } else {
     echo "Impossible de créer un compte";
 }
