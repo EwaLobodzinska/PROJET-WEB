@@ -1,5 +1,5 @@
 <?php #LOBODZINSKA et NGUYEN
-require('titre.html');
+require('titre.html'); #on exige le fichier 'title.html' qui contient l'apparence graphique du site Web
 require ('connexion.php');
 
 #On récupere les informations du formulaire HTML
