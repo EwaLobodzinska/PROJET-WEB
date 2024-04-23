@@ -6,7 +6,7 @@ $sqlcompte ="DELETE client, panier, panier_details
 FROM client
 LEFT JOIN panier ON client.NumClient = panier.NumClient
 LEFT JOIN panier_details ON panier.NumPanier = panier_details.NumPanier
-WHERE client.NumClient = $numClient ";
+WHERE client.NumClient = {$_SESSION['numclient']}";
 $result = $conn->query($sqlcompte);
 
 echo "<p style='color:red;'> Vous avez supprimé votre compte </p> <br><br>";
