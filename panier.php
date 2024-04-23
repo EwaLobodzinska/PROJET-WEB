@@ -1,6 +1,6 @@
-<?php
-/*on a créé panier_info.php pour pouvoir afficher le panier 
-après l'ajout et la supression des articles de panier */
+<?php #LOBODZINSKA et NGUYEN
+/*On a créé le fichier panier_info.php pour pouvoir afficher le panier 
+après l'ajout ou la supression d'articles du panier */
 
 require('titre.html');
 require('connexion.php');
