@@ -19,7 +19,7 @@ $resulttotal = $conn->query($sqltotal);
 
 #On vérifie si le panier est vide ou pas
 if ($total["PrixTotal"] > 0) {
-        echo "<h3> Prix total à payer: " . $total["PrixTotal"] . "</h3><br>";
+        echo "<h3> Prix total à payer: " . $total["PrixTotal"] . " € </h3><br>";
         echo "<button> <a href='commande.php?' style='color: black'> Commander </a></button><br>";
 }
 
@@ -36,7 +36,7 @@ if ($resultpanier->num_rows > 0) {
         while ($article = $resultarticle->fetch_assoc()) {
             echo "<h2 style='color: rgb(29, 86, 29);'>" . $article["NomProduit"] . "</h2>".
             "<img src='".$article["Photo"]."'>".
-            "<p><b> Prix : </b>" . $article["Prix"] . " euros</p>";
+            "<p><b> Prix : </b>" . $article["Prix"] . " € </p>";
         }
         echo "<p><b>Quantité : </b>". $row["Quantite"]."</p>".
         "<form action='supprime_panier.php' method='POST'>".
