@@ -2,6 +2,7 @@
 if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
     session_start();
 }
+
 echo "<button><a href='produits.php' style='color: black'>Voir plus d'articles</a></button>".
     "<button><a href='profil.php' style='color: black'>Voir profil</a></button><br>".
     "<h1 style='color: rgb(45, 29, 86);'>Votre Panier</h1>";
@@ -16,9 +17,10 @@ $resultupdate = $conn->query($sql);
 $sqltotal = "SELECT PrixTotal FROM panier WHERE NumPanier = {$_SESSION['numclient']};
 $resulttotal = $conn->query($sqltotal);
 
-if ($resulttotal->num_rows > 0) {
-    $rowtotal = $resulttotal->fetch_assoc();
-        echo "<h3>Prix total à payer : " . $rowtotal["PrixTotal"] . "</h3><br>";
+#On vérifie si le panier est vide ou pas
+if ($total["PrixTotal"] > 0) {
+        echo "<h3> Prix total à payer: " . $total["PrixTotal"] . "</h3><br>";
+        echo "<button> <a href='commande.php?' style='color: black'> Commander </a></button><br>";
 }
 
 #On affiche les articles du panier
