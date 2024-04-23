@@ -44,7 +44,7 @@ if ($result->num_rows > 0) {
                 <tr>
                 <th>".$rowcommande['NumCommande']."</td>
                 <th>".$rowcommande['Date']."</td>
-                <th>".$rowcommande['PrixTotal']." euros </td>
+                <th>".$rowcommande['PrixTotal']." € </td>
             </tr>
         </table>";
     
@@ -71,7 +71,7 @@ if ($result->num_rows > 0) {
                     echo '<td>'. $numProduit.'</td>';
                     echo '<td>'. $article["NomProduit"] . '</td>';
                     echo '<td>'. $row["Quantite"]. '</td>';
-                    echo '<td>'. $row["Quantite"] * $article["Prix"]. 'euros </td>';
+                    echo '<td>'. $row["Quantite"] * $article["Prix"]. ' € </td>';
                 echo '</tr>';
             }
         }
