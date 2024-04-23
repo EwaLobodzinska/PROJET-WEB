@@ -1,11 +1,15 @@
-#LOBODZINSKA et NGUYEN
+<!-- LOBODZINSKA et NGUYEN -->
+
+<!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <meta charset="UTF-8">
-    <title> Projet 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vend tout !</title>
     <style>
         body{
-            background-color:#b6bfa2;
+            background-color: #b6bfa2;
         }
         h1{
             padding: 20px 0px;
@@ -15,57 +19,66 @@
             text-align: center;
         }
         p{
-            font-size:20px;
+            font-size: 20px;
         }
     </style>
 </head>
+
 <body>
     <div>
-        <h1> Vend tout !</h1>
-        <p> Bienvenue à un site de vente de vêtements outlet! Vous trouverez ici des bonnes marques à un bon prix! Vous êtes invités à choisir des vêtements qui vous plaisent et de les acheter facilement grâce à notre site "Vend tout". </p>
-        <h3> Se connecter ou créer votre compte pour pouvoir facilement effectuer des achats.</h3>
+        <!-- Présentation du site -->
+        <h1>Vend tout !</h1>
+        <p>Bienvenue sur un site de vente de vêtements outlet ! Vous trouverez ici des bonnes marques à un bon prix ! Vous êtes invités à choisir des vêtements qui vous plaisent et à les acheter facilement grâce à notre site "Vend tout !".</p>
+        <h3>Se connecter ou créer votre compte pour pouvoir facilement effectuer des achats.</h3>
         <br>
+
+        <!-- Formulaire pour se connecter à un compte existant -->
         <form action="connexion_compte.php" method="POST">
             <fieldset>
-            <legend> <b>Se connecter </b></legend>
-            <label id="NumClient"> Entrez votre numéro de client</label>
-            <input type="text" id="NumClient" name="NumClient">
+            <legend><b>Se connecter</b></legend>
+            <label id="email">Entrez votre adresse mail</label>
+            <input type="email" id="email" name="email">
             <br>
             <label id="motpasse">Entrez votre mot de passe</label>
             <input type="password" id="motpasse" name="motpasse">
-            <button> Se connecter </button>
+            <button>Se connecter</button>
             </fieldset>
         </form>
         <br>
+
+        <!-- Formulaire pour créer un compte -->
         <form action="creation_compte.php" method="POST">
             <fieldset>
-            <legend> <b>Créer votre compte </b></legend>
-            <label id="prenom"> Entrez votre prenom </label>
+            <legend><b>Créer un compte</b></legend>
+            <label id="prenom">Entrez votre prénom</label>
             <input type ="text" id="prenom" name="prenom">
             <br>
-            <label id="nom"> Entrez votre nom </label>
+            <label id="nom">Entrez votre nom</label>
             <input type ="text" id="nom" name="nom">
             <br>
-            <label id="datenaiss"> Entrez votre date de naissance </label>
+            <label id="datenaiss">Entrez votre date de naissance</label>
             <input type ="date" id="datenaiss" name="datenaiss">
             <br>
-            <label id="email"> Entrez votre adresse mail </label>
+            <label id="email">Entrez votre adresse mail</label>
             <input type ="text" id="email" name="email">
             <br>
-            <label id="tel"> Entrez votre numéro de telephone </label>
+            <label id="tel">Entrez votre numéro de télephone</label>
             <input type ="text" id="tel" name="tel">
             <br>
-            <label id="sexe"> Choisissez votre sexe </label>
+            <label id="sexe">Choisissez votre sexe</label>
             <select name="sexe">
                 <option value="femme"> Femme </option>
                 <option value="homme"> Homme </option>
                 <option value="autre"> Autre </option>
             </select>
             <br>
-            <label id="motpass"> Entrez votre mot de passe </label>
+            <label id="motpass">Entrez votre mot de passe </label>
             <input type ="password" id="motpass" name="motpass">
-            <button> Créer compte </button>
+            <button>Créer compte</button>
         </fieldset>
         </form>
+        
     </div>
 </body>
+
+</html>
