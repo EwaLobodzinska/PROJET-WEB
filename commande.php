@@ -14,7 +14,7 @@ $resulttotal = $conn->query($sqltotal);
 $prixT = $resulttotal->fetch_assoc();
 if ($prixT["PrixTotal"] > 0) {
         echo "<h1 style='color: rgb(45, 29, 86);'> Sommaire </h1>";
-        echo "<h3> Prix total à payer: " . $prixT["PrixTotal"] . " euros </h3>";        
+        echo "<h3> Prix total à payer: " . $prixT["PrixTotal"] . " € </h3>";        
 }
 
 $sqlpanier = "SELECT * FROM panier_details WHERE NumPanier = {$_SESSION['numclient']}";
@@ -59,7 +59,7 @@ if ($resultpanier->num_rows > 0) {
                 echo '<td>'. $numProduit.'</td>';
                 echo '<td>'. $article["NomProduit"] . '</td>';
                 echo '<td>'. $row["Quantite"]. '</td>';
-                echo '<td>'. $row["Quantite"] * $article["Prix"]. ' euros </td>';
+                echo '<td>'. $row["Quantite"] * $article["Prix"]. ' € </td>';
             echo '</tr>';
         }
     }
