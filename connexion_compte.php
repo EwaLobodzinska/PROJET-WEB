@@ -20,7 +20,7 @@ if (isset($_POST['email']) and isset($_POST['motpasse'])) {
             session_start();
             $_SESSION['email'] = $mail;
             $_SESSION['motpasse'] = $mdp;
-            $_SESSION['num'] = $row[0];
+            $_SESSION['numclient'] = $row[0];
 
         } else {
             echo "<p style='color: red;'>Mot de passe incorrect.</p><br>".
