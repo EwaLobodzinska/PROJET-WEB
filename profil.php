@@ -1,20 +1,18 @@
-<?php 
+<?php #LOBODZINSKA et NGUYEN
 require('titre.html');
 require('connexion.php');
 
-//Pour récupérer des informations sur le client dans le formulaire HTML
-$sql = "SELECT * FROM client WHERE NumClient = $numClient"; 
+#On récupère les informations sur le client
+$sql = "SELECT * FROM client WHERE NumClient = {$_SESSION['numclient']}"; 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 }
 
-echo "<button> <a href='produits.php?NumClient=$numClient'> Voir d'articles </a> </button>";
-echo "<button> <a href='panier.php?NumClient=$numClient'> Voir panier </a> </button>  <br>";
-
-echo "<h1 style='color:rgb(45, 29, 86);'> Profil </h1>";
-echo "Votre numéro de client est: <b>".$numClient."</b><br>";
+echo "<button><a href='produits.php' style='color : black'>Voir des articles</a></button>".
+"<button><a href='panier.php' style='color : black'>Voir panier</a></button> <br>".
+"<h1 style='color: rgb(45, 29, 86);'>Profil</h1>";
 ?>
 
 <html>
@@ -58,4 +56,5 @@ echo "Votre numéro de client est: <b>".$numClient."</b><br>";
             <button> supprimer compte </button>
         </form>
     </body>
+
 </html>
