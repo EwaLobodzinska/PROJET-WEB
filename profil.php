@@ -12,11 +12,11 @@ if ($result->num_rows > 0) {
 
 echo "<button><a href='produits.php' style='color : black'>Voir des articles</a></button>".
 "<button><a href='panier.php' style='color : black'>Voir panier</a></button> <br>".
-"<h1 style='color: rgb(45, 29, 86);'>Profil</h1>";
+"<h1 style='color: rgb(45, 29, 86);'>Profil</h1>". 
+"<br><button><a href='historique.php' style='color: black;'> Voir historique des commandes </a></button><br>";
 ?>
 
 <html>
-    
     <body>
         <br>
         <form action="changer_infos.php" method="POST" style="background-color: #b6bfa2;">
