@@ -24,11 +24,11 @@ if (isset($_POST['email']) and isset($_POST['motpasse'])) {
 
         } else {
             echo "<p style='color: red;'>Mot de passe incorrect.</p><br>".
-                "<button><a href='accueil.html'>Revenir à la page d'accueil</a></button>";
+                "<button><a href='accueil.html' style='color: black'>Revenir à la page d'accueil</a></button>";
         }
     } else {
         echo "<p style='color: red;'>Aucun compte n'est associé à cette adresse mail.</p><br>"
-            . "<button><a href='accueil.html'>Revenir à la page d'accueil</a></button>";
+            . "<button><a href='accueil.html' style='color: black'>Revenir à la page d'accueil</a></button>";
     }
 }
 
