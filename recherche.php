@@ -6,12 +6,10 @@ require('barre_recherche.html');
 $motcle = $_POST['keywords'];
 
 if (!empty($motcle)){
-    //$motcle = implode(explode(" ", trim($keywords)));
     $sql = "SELECT * FROM produit WHERE NomProduit LIKE '%$motcle%' OR Categorie LIKE '%$motcle%' OR Marque LIKE '%$motcle%'"; 
     $result = $conn->query($sql);
 
-
-    echo "<p style='color: rgb(45, 29, 86);'><b>".$result->num_rows."</b> resultat(s) pour le mot cle: <b>'".$motcle."' </b></p><br>";
+    echo "<p style='color: rgb(45, 29, 86);'><b>".$result->num_rows."</b> résultat(s) pour le mot clé: <b>'".$motcle."' </b></p><br>";
 
     while ($row = $result->fetch_assoc()) {
         $nom = $row['NomProduit'];
