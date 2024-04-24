@@ -1,5 +1,4 @@
 <!-- LOBODZINSKA et NGUYEN -->
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -9,7 +8,16 @@
     <title>Vend tout !</title>
     <style>
         body{
+                background-image: url('background.jpg');
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-size: cover;
+        } 
+        form{
             background-color: #b6bfa2;
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
         }
         h1{
             padding: 20px 0px;
@@ -17,9 +25,14 @@
             color: rgb(29, 86, 29);
             font-size: 50px;
             text-align: center;
+            margin-top: 20px;
         }
         p{
             font-size: 20px;
+        }
+        p, h3{
+            text-align:center;
+            margin: 20px 100px;
         }
     </style>
 </head>
@@ -30,7 +43,6 @@
         <h1>Vend tout !</h1>
         <p>Bienvenue sur un site de vente de vêtements outlet ! Vous trouverez ici des bonnes marques à un bon prix ! Vous êtes invités à choisir des vêtements qui vous plaisent et à les acheter facilement grâce à notre site "Vend tout !".</p>
         <h3>Se connecter ou créer votre compte pour pouvoir facilement effectuer des achats.</h3>
-        <br>
 
         <!-- Formulaire pour se connecter à un compte existant -->
         <form action="connexion_compte.php" method="POST">
