@@ -2,7 +2,6 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-    
     <head>
         <title>Vend tout !</title>
         <style>
@@ -16,7 +15,7 @@
             img{
                 height: 250px;
                 width: 200px;
-                border: 3px inset rgb(29, 86, 29)
+                border: 3px inset rgb(29, 86, 29);
             }
             .titre{
                 padding: 20px 0px;
@@ -24,12 +23,43 @@
                 color: rgb(29, 86, 29);
                 font-size: 50px;
                 text-align: center; 
+                margin-top: 20px ;
+                margin-bottom: 0px ;
+            }
+            .menu ul{
+	            list-style-type: none;
+                padding: 0;
+                overflow: hidden;
+                margin: 0; 
+            }  
+            .menu li{
+                float: right;
+            }
+            .menu a{
+                display: block;
+                padding: 8px;  
+            }
+            .menu li a{
+                display: block;
+                padding: 14px 16px;
+                text-align: center;
+                text-decoration: none;
+                color:  black;
+            }
+            .menu li a:hover{
+                color: rgb(29, 86, 29);
             }
         </style>
     </head>
-
     <body>
         <h1 class="titre">Vend tout !</h1>
+        <div class="menu">
+            <ul><b>
+                <li> <a href="deconnexion.php"> DECONNEXION </a></li>
+                <li> <a href="profil.php"> PROFIL </a> </li>
+                <li> <a href="panier.php"> PANIER </a></li>
+                <li> <a href="produits.php"> PRODUITS </a></li>      
+            </b></ul> 
+        </div>
     </body>
-    
 </html>
