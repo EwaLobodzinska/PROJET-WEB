@@ -3,9 +3,7 @@ if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SE
     session_start();
 }
 
-echo "<button><a href='produits.php' style='color: black'>Voir plus d'articles</a></button>".
-    "<button><a href='profil.php' style='color: black'>Voir profil</a></button><br>".
-    "<h1 style='color: rgb(45, 29, 86);'>Votre Panier</h1>";
+echo "<h1 style='color: rgb(45, 29, 86);'>Votre Panier</h1>";
 
 #On fait la somme des produits du panier
 $sql = "UPDATE panier SET panier.PrixTotal = 
@@ -19,8 +17,8 @@ $resulttotal = $conn->query($sqltotal);
 
 #On vérifie si le panier est vide ou pas
 if ($total["PrixTotal"] > 0) {
-        echo "<h3> Prix total à payer: " . $total["PrixTotal"] . " € </h3><br>";
-        echo "<button> <a href='commande.php?' style='color: black'> Commander </a></button><br>";
+        echo "<h3> Prix total à payer: " . $total["PrixTotal"] . " € </h3>";
+        echo "<button> <a href='commande.php?' style='color: black'> Commander </a></button><br><br>";
 }
 
 #On affiche les articles du panier
@@ -44,7 +42,7 @@ if ($resultpanier->num_rows > 0) {
         "<button type='submit'>Supprimer du panier</button></form></div><br>";
     }
 } else {
-    echo "Panier vide. Vous n'avez pas encore ajouté d'article.";
+    echo "<br> Panier vide. Vous n'avez pas encore ajouté d'article.";
 }
 
 $conn->close();
