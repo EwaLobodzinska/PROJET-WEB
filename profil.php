@@ -2,6 +2,10 @@
 require('titre.html');
 require('connexion.php');
 
+if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
+    session_start();
+}
+
 #On récupère les informations sur le client
 $sql = "SELECT * FROM client WHERE NumClient = {$_SESSION['numclient']}"; 
 $result = $conn->query($sql);
@@ -10,10 +14,8 @@ if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
 }
 
-echo "<button><a href='produits.php' style='color : black'>Voir des articles</a></button>".
-"<button><a href='panier.php' style='color : black'>Voir panier</a></button> <br>".
-"<h1 style='color: rgb(45, 29, 86);'>Profil</h1>". 
-"<br><button><a href='historique.php' style='color: black;'> Voir historique des commandes </a></button><br>";
+echo "<h1 style='color: rgb(45, 29, 86);'>Profil</h1>". 
+"<button><a href='historique.php' style='color: black;'> Voir historique des commandes </a></button><br>";
 ?>
 
 <html>
@@ -56,11 +58,8 @@ echo "<button><a href='produits.php' style='color : black'>Voir des articles</a>
             </fieldset>
         </form>
 
-        <form action="supprime_compte.php" method="POST">
-            <input type='hidden'>
-            <br><br><br>
-            <button>Supprimer mon compte</button>
-        </form>
+        <br><br><br>
+        <button>Supprimer mon compte</button>
     </body>
 
 </html>
