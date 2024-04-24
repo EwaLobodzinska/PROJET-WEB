@@ -5,7 +5,7 @@ if (isset($_SESSION['email']) and isset($_SESSION['motpasse']) and isset($_SESSI
     unset($_SESSION['email'], $_SESSION['motpasse'], $_SESSION['num']);
     session_destroy();
     if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
-        echo "Déconnexion réussie !<br>" .
+        echo "<p style='color: rgb(45, 29, 86);'>Déconnexion réussie !</p><br>" .
             "<button><a href='accueil.html' style='color: black'>Revenir à la page d'accueil</a></button>";
     }
 }
