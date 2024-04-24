@@ -2,6 +2,10 @@
 require('titre.html');
 require('connexion.php');
 
+if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
+    session_start();
+}
+
 //on récupere des infos de formulaire
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
@@ -12,11 +16,11 @@ $sexe = $_POST['sexe'];
 $motpass = $_POST['motpass'];
 
 //la mise à jour des informations personnelles
-$sqlupdate = "UPDATE client SET NomClient = '$nom', PrenomClient = '$prenom', DateNaissance = '$datenaissance', Email = '$email', Telephone = '$tel', Sexe = '$sexe', MotDePasse ='$motpass'WHERE NumClient = $numClient";
+$sqlupdate = "UPDATE client SET NomClient = '$nom', PrenomClient = '$prenom', DateNaissance = '$datenaissance', Email = '$email', Telephone = '$tel', Sexe = '$sexe', MotDePasse ='$motpass'WHERE NumClient = {$_SESSION['numclient']}";
 $updated = $conn->query($sqlupdate);
 
 //l'affichage des informations personnelles actualisées
-$sql = "SELECT * FROM client WHERE NumClient = $numClient"; 
+$sql = "SELECT * FROM client WHERE NumClient = {$_SESSION['numclient']}"; 
 $result = $conn->query($sql);
 
     echo "<p style='color:red;'>! Vous avez bien changé vos informations personnelles ! </p>";
@@ -28,7 +32,7 @@ $result = $conn->query($sql);
         echo "<p> E-mail: " . $row["Email"] . "</p>";
         echo "<p> Telephone: " . $row["Telephone"] . "</p>";
         echo "<p> Sexe: " . $row["Sexe"] . "</p>";
-        echo "<button> <a href='profil.php?NumClient=$numClient'> Retourner au profil </a> </button>";
+        echo "<button><a href='profil.php'> Retourner au profil </a></button>";
 
 $conn->close();
 ?>
