@@ -2,9 +2,13 @@
 require('titre.html');
 require('connexion.php');
 
+if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
+    session_start();
+}
+
 $numProduit = $_POST['NumProduit'];
 
-$sqlquantite = "SELECT Quantite FROM panier_details WHERE NumPanier = $numClient AND NumProduit = $numProduit";
+$sqlquantite = "SELECT Quantite FROM panier_details WHERE NumPanier = {$_SESSION['numclient']} AND NumProduit = $numProduit";
 $resultquantite = $conn->query($sqlquantite);
 
 if ($resultquantite->num_rows > 0) {
