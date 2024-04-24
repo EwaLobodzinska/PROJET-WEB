@@ -38,6 +38,6 @@ $resultdelete = $conn->query($sqlpanierdelete);
 $sqlprixupdate ="UPDATE panier SET PrixTotal = 0 WHERE NumPanier = {$_SESSION['numclient']}"; 
 $resultupdate = $conn->query($sqlprixupdate);
 
-echo "<h3 style='color: red;'> Merci pour votre commande! </h3<h4> Vous pouvez suivre votre commande sur le numéro: ".$numCommande. "</h4><br>";
+echo "<p style='color: red;'> Merci pour votre commande! </p><p> Vous pouvez suivre votre commande sur le numéro: <b>".$numCommande. "</b></p><br>";
 echo "<button> <a href='produits.php' style='color: black;'> Revenir aux articles </a> </button>";
 ?>
