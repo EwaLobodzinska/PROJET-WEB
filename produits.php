@@ -1,11 +1,9 @@
 <?php #LOBODZINSKA et NGUYEN
 require('titre.html');
 require('connexion.php');
+require('barre_recherche.html');
 
-echo "<h1 style='color: rgb(45, 29, 86);'>Ici vous pouvez voir tous nos articles proposés !</h1>".
-"<button><a href='panier.php' style='color: black'>Voir panier</a></button>".
-"<button><a href='profil.php' style='color: black'>Voir profil</a></button>".
-"<button><a href='deconnexion.php'>Se déconnecter</a></button>";
+echo "<h1 style='color: rgb(45, 29, 86);'>Ici vous pouvez voir tous nos articles proposés !</h1><br>".;
 
 $sql = "SELECT * FROM produit";
 $result = $conn->query($sql);
