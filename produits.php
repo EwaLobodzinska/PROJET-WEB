@@ -1,6 +1,7 @@
 <?php #LOBODZINSKA et NGUYEN
-require('titre.html');
 require('connexion.php');
+require('titre.html');
+require ('menu.html');
 require('barre_recherche.html');
 
 echo "<h1 style='color: rgb(45, 29, 86);'>Ici vous pouvez voir tous nos articles proposés !</h1><br>".;
