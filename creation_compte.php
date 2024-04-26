@@ -9,7 +9,7 @@ $datenaissance = $_POST['datenaiss'];
 $email = $_POST['email'];
 $tel = $_POST['tel'];
 $sexe = $_POST['sexe'];
-$motpass = $_POST['motpass'];
+$motpass = password_hash($_POST['motpass'], PASSWORD_DEFAULT);
 
 #Requête SQL pour insérer un nouvel enregistrement dans la table client
 $sql = "INSERT INTO client (NumClient, NomClient, PrenomClient, DateNaissance, Email, Telephone, Sexe, MotDePasse) 
