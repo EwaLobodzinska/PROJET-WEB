@@ -1,6 +1,7 @@
 <?php #LOBODZINSKA et NGUYEN
-require('titre.html');
 require('connexion.php');
+require('titre.html');
+require ('menu.html');
 
 if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
     session_start();
