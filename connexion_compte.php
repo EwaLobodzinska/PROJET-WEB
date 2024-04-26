@@ -14,7 +14,7 @@ if (isset($_POST['email']) and isset($_POST['motpasse'])) {
     if ($resultclient->num_rows > 0) {
         # Vérification du mot de passe
         if (password_verify($mdp, $row[2])) {
-            echo "<p style='color: rgb(45, 29, 86);'>Vous êtes bien connectés ! Pour continuer, cliquez sur le bouton :)</p><br>" .
+            echo "<br><p style='color: rgb(45, 29, 86);'>Vous êtes bien connectés ! Pour continuer, cliquez sur le bouton :)</p><br>" .
                 "<button><a href='produits.php'>Voir des articles</a></button>";
             #Pour toujours avoir l'identité du client enregistré, on utilise la superglobale SESSION
             session_start();
@@ -23,11 +23,11 @@ if (isset($_POST['email']) and isset($_POST['motpasse'])) {
             $_SESSION['numclient'] = $row[0];
 
         } else {
-            echo "<p style='color: red;'>Mot de passe incorrect.</p><br>".
+            echo "<br><p style='color: red;'>Mot de passe incorrect.</p><br>".
                 "<button><a href='accueil.html' style='color: black'>Revenir à la page d'accueil</a></button>";
         }
     } else {
-        echo "<p style='color: red;'>Aucun compte n'est associé à cette adresse mail.</p><br>"
+        echo "<br><p style='color: red;'>Aucun compte n'est associé à cette adresse mail.</p><br>"
             . "<button><a href='accueil.html' style='color: black'>Revenir à la page d'accueil</a></button>";
     }
 }
