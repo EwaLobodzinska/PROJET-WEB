@@ -13,7 +13,7 @@ if (isset($_POST['email']) and isset($_POST['motpasse'])) {
     # Vérification de l'existence d'un compte associé à l'adresse mail entrée
     if ($resultclient->num_rows > 0) {
         # Vérification du mot de passe
-        if ($mdp == $row[2]) {
+        if (password_verify($mdp, $row[2])) {
             echo "<p style='color: rgb(45, 29, 86);'>Vous êtes bien connectés ! Pour continuer, cliquez sur le bouton :)</p><br>" .
                 "<button><a href='produits.php'>Voir des articles</a></button>";
             #Pour toujours avoir l'identité du client enregistré, on utilise la superglobale SESSION
