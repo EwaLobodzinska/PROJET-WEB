@@ -1,7 +1,7 @@
 <?php
-require('titre.html');
 require('connexion.php');
-require('barre_recherche.html');
+require('titre.html');
+require ('menu.html');
 
 $motcle = $_POST['keywords'];
 
