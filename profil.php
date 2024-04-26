@@ -1,6 +1,7 @@
 <?php #LOBODZINSKA et NGUYEN
-require('titre.html');
 require('connexion.php');
+require('titre.html');
+require ('menu.html');
 
 if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
     session_start();
@@ -59,7 +60,6 @@ echo "<h1 style='color: rgb(45, 29, 86);'>Profil</h1>".
         </form>
 
         <br><br><br>
-        <button>Supprimer mon compte</button>
+        <button><a href='supprime_compte.php' style='color: red'>Supprimer mon compte</a></button>
     </body>
-
 </html>
