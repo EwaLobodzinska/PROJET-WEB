@@ -1,6 +1,7 @@
 <?php #LOBODZINSKA et NGUYEN
-require('titre.html');
 require('connexion.php');
+require('titre.html');
+require ('menu.html');
 
 if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
     session_start();
@@ -38,6 +39,6 @@ $resultdelete = $conn->query($sqlpanierdelete);
 $sqlprixupdate ="UPDATE panier SET PrixTotal = 0 WHERE NumPanier = {$_SESSION['numclient']}"; 
 $resultupdate = $conn->query($sqlprixupdate);
 
-echo "<p style='color: red;'> Merci pour votre commande! </p><p> Vous pouvez suivre votre commande sur le numéro: <b>".$numCommande. "</b></p><br>";
-echo "<button> <a href='produits.php' style='color: black;'> Revenir aux articles </a> </button>";
+echo "<p style='color: red;'> Merci pour votre commande! </p><p> Vous pouvez suivre votre commande sur le numéro: <b>".$numCommande. "</b></p><br>".
+"<button><a href='produits.php' style='color: black;'> Revenir aux articles </a></button>";
 ?>
