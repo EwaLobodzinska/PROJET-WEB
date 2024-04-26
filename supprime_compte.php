@@ -1,6 +1,6 @@
-<?php #LOBODZINSKA et NGUYEN
-require('titre.html');
 require('connexion.php');
+require('titre.html');
+require ('menu.html');
 
 $sqlcompte ="DELETE client, panier, panier_details, commande, commande_details
 FROM client, panier, panier_details, commande, commande_details
@@ -20,8 +20,8 @@ LEFT JOIN commande_details ON commande.NumCommande = commande_details.NumCommand
 WHERE client.NumClient = {$_SESSION['numclient']}";
 $result = $conn->query($sqlcompte); */
 
-echo "<p style='color:red;'> Vous avez supprimé votre compte </p><br><br>";
-echo "<button><a href='accueil.html'> Revenir à la page d'accueil </a></button>";
+echo "<p style='color:red;'> Vous avez supprimé votre compte </p><br><br>".
+    "<button><a href='accueil.html'> Revenir à la page d'accueil </a></button>";
 
 session_start();
 if (isset($_SESSION['email']) and isset($_SESSION['motpasse']) and isset($_SESSION['numclient'])) {
