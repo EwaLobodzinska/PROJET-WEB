@@ -1,7 +1,7 @@
 <?php #LOBODZINSKA et NGUYEN
-
-require('titre.html');
 require('connexion.php');
+require('titre.html');
+require ('menu.html');
 
 if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
     session_start();
@@ -13,8 +13,8 @@ $resulttotal = $conn->query($sqltotal);
 //on vérifie si le panier est vide ou pas
 $prixT = $resulttotal->fetch_assoc();
 if ($prixT["PrixTotal"] > 0) {
-        echo "<h1 style='color: rgb(45, 29, 86);'> Sommaire </h1>";
-        echo "<h3> Prix total à payer: " . $prixT["PrixTotal"] . " € </h3>";        
+        echo "<h1 style='color: rgb(45, 29, 86);'> Sommaire </h1>".
+        "<h3> Prix total à payer: " . $prixT["PrixTotal"] . " € </h3>";        
 }
 
 $sqlpanier = "SELECT * FROM panier_details WHERE NumPanier = {$_SESSION['numclient']}";
@@ -66,8 +66,8 @@ if ($resultpanier->num_rows > 0) {
     echo '</table>';
 } 
 
-echo "<br><button><a href='panier.php' style='color: black;'> Revenir au panier </a></button> ";
-echo "<button><a href='paiement.php' style='color: black;'> Payer </a></button><br>";
+echo "<br><button><a href='panier.php' style='color: black;'> Revenir au panier </a></button> ".
+"<button><a href='paiement.php' style='color: black;'> Payer </a></button><br>";
 
 $conn->close();
 ?>
