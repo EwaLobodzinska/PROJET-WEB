@@ -42,7 +42,7 @@ if ($resultpanier->num_rows > 0) {
         "<button type='submit'>Supprimer du panier</button></form></div><br>";
     }
 } else {
-    echo "<br> Panier vide. Vous n'avez pas encore ajouté d'article.";
+    echo "Panier vide. Vous n'avez pas encore ajouté d'article.";
 }
 
 $conn->close();
