@@ -80,8 +80,8 @@ if ($result->num_rows > 0) {
     }
 }
 else {
-    echo "Vous n'avez pas encore effectué aucun commande <br><br>";
+    echo "Vous n'avez pas encore effectué de commande.<br><br>";
 }
 
-echo "<button><a href='profil.php' style='color:black;'> Retourner au profil </a></button><br>";
+echo "<button><a href='profil.php' style='color: black;'>Retourner au profil</a></button><br>";
 ?>
