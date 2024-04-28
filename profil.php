@@ -3,25 +3,28 @@ require('connexion.php');
 require('titre.html');
 require ('menu.html');
 
+#On démarre la session si ce n'est pas déjà fait.
 if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
     session_start();
 }
 
-#On récupère les informations sur le client
+#On récupère les informations sur l'utilisateur connecté dans la table 'client'.
 $sql = "SELECT * FROM client WHERE NumClient = {$_SESSION['numclient']}"; 
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    $row = $result->fetch_assoc();
+    $row = $result->fetch_assoc(); #Les informations sont stockées dans le tableau associatif '$row'.
 }
 
 echo "<h1 style='color: rgb(45, 29, 86);'>Profil</h1>". 
-"<button><a href='historique.php' style='color: black;'> Voir historique des commandes </a></button><br>";
+"<button><a href='historique.php' style='color: black;'>Voir l'historique des commandes</a></button><br>";
 ?>
 
 <html>
     <body>
         <br>
+
+        <!-- On affiche le formulaire de modification des informations personnelles pré-rempli -->
         <form action="changer_infos.php" method="POST" style="background-color: #b6bfa2;">
             <fieldset>
                 <legend><b>Changer vos informations personnelles</b></legend>
@@ -51,8 +54,7 @@ echo "<h1 style='color: rgb(45, 29, 86);'>Profil</h1>".
                     <option value="autre" <?php if ($row['Sexe'] == "autre") {
                         echo "selected"; 
                     } ?>>Autre</option>
-                </select>
-                <br>
+                </select><br>
                 <label id="motpass">Votre mot de passe</label>
                 <input type ="password" id="motpass" name="motpass">
                 <button>Changer</button>
@@ -60,6 +62,7 @@ echo "<h1 style='color: rgb(45, 29, 86);'>Profil</h1>".
         </form>
 
         <br><br><br>
+        <!-- L'utilisateur peut supprimer son compte en cliquant sur le bouton -->
         <button><a href='supprime_compte.php' style='color: red'>Supprimer mon compte</a></button>
     </body>
 </html>
