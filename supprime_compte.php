@@ -1,3 +1,4 @@
+<?php #LOBODZINSKA et NGUYEN
 require('connexion.php');
 require('titre.html');
 require ('menu.html');
