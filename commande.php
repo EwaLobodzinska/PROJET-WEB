@@ -3,23 +3,26 @@ require('connexion.php');
 require('titre.html');
 require ('menu.html');
 
+#On démarre la session si ce n'est pas déjà fait.
 if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
     session_start();
 }
 
+#On récupère le montant total du panier.
 $sqltotal = "SELECT PrixTotal FROM panier WHERE NumPanier = {$_SESSION['numclient']}";
 $resulttotal = $conn->query($sqltotal);
-
-//on vérifie si le panier est vide ou pas
 $prixT = $resulttotal->fetch_assoc();
+
 if ($prixT["PrixTotal"] > 0) {
-        echo "<h1 style='color: rgb(45, 29, 86);'> Sommaire </h1>".
-        "<h3> Prix total à payer: " . $prixT["PrixTotal"] . " € </h3>";        
+        echo "<h1 style='color: rgb(45, 29, 86);'>Résumé</h1>".
+        "<h3>Prix total à payer: " . $prixT["PrixTotal"] . " €</h3>";        
 }
 
+#On récupère les articles du panier.
 $sqlpanier = "SELECT * FROM panier_details WHERE NumPanier = {$_SESSION['numclient']}";
 $resultpanier = $conn->query($sqlpanier);
 
+#On affiche les données dans un tableau.
 if ($resultpanier->num_rows > 0) {
     echo '<style> 
     table, th, tr, td {
@@ -54,13 +57,13 @@ if ($resultpanier->num_rows > 0) {
         $resultarticle = $conn->query($sqlarticle);
 
         while ($article = $resultarticle->fetch_assoc()) {
-            echo '<tr> ';
-                echo '<td> <img src="'.$article["Photo"].'"> </td>';
-                echo '<td>'. $numProduit.'</td>';
-                echo '<td>'. $article["NomProduit"] . '</td>';
-                echo '<td>'. $row["Quantite"]. '</td>';
-                echo '<td>'. $row["Quantite"] * $article["Prix"]. ' € </td>';
-            echo '</tr>';
+            echo '<tr>'.
+            '<td><img src="'.$article["Photo"].'"></td>'.
+            '<td>'. $numProduit.'</td>'.
+            '<td>'. $article["NomProduit"] . '</td>'.
+            '<td>'. $row["Quantite"]. '</td>'.
+            '<td>'. $row["Quantite"] * $article["Prix"]. ' € </td>'.
+            '</tr>';
         }
     }
     echo '</table>';
