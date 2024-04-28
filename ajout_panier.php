@@ -22,5 +22,37 @@ else {
     echo "<p style='color: red;'>Vous avez bien ajouté l'article à votre panier !</p><br>";
 }
 
-require('panier_info.php');
+#On affiche d'autres articles de la marque 
+$sqlmarque = "SELECT Marque FROM produit WHERE NumProduit = {$_POST['NumProduit']}";
+$resultmarque = $conn->query($sqlmarque);
+
+if ($resultmarque->num_rows > 0) {
+
+    while ($rowm = $resultmarque->fetch_assoc()) {
+        $marque = $rowm['Marque'];
+
+        $sqlprop = "SELECT * FROM produit WHERE Marque = '$marque' AND NumProduit <> {$_POST['NumProduit']}"; // Fix the missing quotation mark here
+        $result = $conn->query($sqlprop);
+
+        if ($result->num_rows > 0) {
+            echo "<br><h2 style='color:rgb(45, 29, 86);'> Voir plus d'articles de la marque: ".$marque. "</h2>" ; 
+            
+            #On affiche chaque article récupéré
+            while ($row = $result->fetch_assoc()) {
+                if ($row['Stock'] > 0){
+                    echo "<div><h2 style='color: rgb(29, 86, 29);'>".$row["NomProduit"]."</h2>".
+                    "<img src='".$row["Photo"]."'>".
+                    "<p><b>Prix: </b>".$row["Prix"]." € </p>".
+                    "<p><b>Catégorie: </b>".$row["Categorie"]."</p>".
+                    "<p><b>Marque: </b>".$row["Marque"]."</p>".
+                    "<p>Quantité disponible en stock: <b>".$row["Stock"]. "</b></p>".
+                    "<form action='ajout_panier.php' method='POST'>".
+                    #Pour récupérer le numéro du produit à la page suivante on utilise : type='hidden'
+                    "<input type='hidden' name='NumProduit' value='".$row["NumProduit"] . "'>".
+                    "<button type='submit'>Ajouter au panier</button></form></div><br>";
+                }
+            }
+        }
+    }
+}
 ?>
