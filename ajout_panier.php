@@ -19,7 +19,7 @@ if ($resultquantite->num_rows > 0) {
 } else {
     $sqli = "INSERT INTO panier_details (NumPanier, NumProduit, Quantite) VALUES ({$_SESSION['numclient']}, {$_POST['NumProduit']}, 1)";
     $result = $conn->query($sqli);
-    echo "<p style='color: red;'>Vous avez bien ajouté l'article à votre panier !</p><br>";
+    echo "<p style='color: red;'>Vous avez bien ajouté l'article à votre panier !</p>";
 }
 
 #On affiche d'autres articles de la marque.
