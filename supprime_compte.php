@@ -3,6 +3,7 @@ require('connexion.php');
 require('titre.html');
 require ('menu.html');
 
+#On démarre la session si ce n'est pas déjà fait.
 if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
     session_start();
 }
@@ -17,7 +18,7 @@ WHERE client.NumClient = {$_SESSION['numclient']}";
 $result = $conn->query($sqlcompte); 
 
 echo "<p style='color:red;'> Vous avez supprimé votre compte </p><br><br>".
-    "<button><a href='accueil.html'> Revenir à la page d'accueil </a></button>";
+    "<button><a href='accueil.html' style='color: black;'> Revenir à la page d'accueil </a></button>";
 
 if (isset($_SESSION['email']) and isset($_SESSION['motpasse']) and isset($_SESSION['numclient'])) {
     unset($_SESSION['email'], $_SESSION['motpasse'], $_SESSION['numclient']);
