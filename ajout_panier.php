@@ -31,7 +31,7 @@ if ($resultmarque->num_rows > 0) {
     while ($rowm = $resultmarque->fetch_assoc()) {
         $marque = $rowm['Marque'];
 
-        $sqlprop = "SELECT * FROM produit WHERE Marque = '$marque' AND NumProduit <> {$_POST['NumProduit']}"; // Fix the missing quotation mark here
+        $sqlprop = "SELECT * FROM produit WHERE Marque = '$marque' AND NumProduit <> {$_POST['NumProduit']}";
         $result = $conn->query($sqlprop);
 
         if ($result->num_rows > 0) {
