@@ -17,10 +17,13 @@ if ($result->num_rows > 0) {
 }
 
 echo "<h1 style='color: rgb(45, 29, 86);'>Profil</h1>". 
-"<button><a href='historique.php' style='color: black;'>Voir l'historique des commandes</a></button><br>";
+"<button><a href='historique.php' style='color: black;'>Voir l'historique des commandes</a></button><br>"; #On peut accéder à l'historique des commandes.
+
+$conn->close();
 ?>
 
 <html>
+
     <body>
         <br>
 
@@ -65,4 +68,5 @@ echo "<h1 style='color: rgb(45, 29, 86);'>Profil</h1>".
         <!-- L'utilisateur peut supprimer son compte en cliquant sur le bouton -->
         <button><a href='supprime_compte.php' style='color: red'>Supprimer mon compte</a></button>
     </body>
+    
 </html>
