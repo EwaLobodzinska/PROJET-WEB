@@ -8,7 +8,7 @@ if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SE
     session_start();
 }
 
-$sqlcompte ="DELETE client, panier, panier_details
+$sqlcompte ="DELETE client, panier, panier_details, commande, commande_details
 FROM client
 LEFT JOIN panier ON client.NumClient = panier.NumClient
 LEFT JOIN panier_details ON panier.NumPanier = panier_details.NumPanier
