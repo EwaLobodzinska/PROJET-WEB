@@ -9,9 +9,9 @@ echo "<h1 style='color: rgb(45, 29, 86);'>Ici vous pouvez voir tous nos articles
 $sql = "SELECT * FROM produit";
 $result = $conn->query($sql);
 
-#On vérifie s'il y a des articles à récupérer
+#On vérifie s'il y a des articles à récupérer.
 if ($result->num_rows > 0) {
-    #On affiche chaque article récupéré
+    #On affiche chaque article récupéré.
     while ($row = $result->fetch_assoc()) {
         echo "<div><h2 style='color: rgb(29, 86, 29);'>".$row["NomProduit"]."</h2>".
             "<img src='".$row["Photo"]."'>".
