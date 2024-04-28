@@ -1,18 +1,23 @@
 <!-- LOBODZINSKA et NGUYEN -->
 
-<html>
+<!DOCTYPE html>
+<html lang="fr">
+
     <head>
+        <meta charset="UTF-8">
         <style> 
             #recherche{
                 float: right;
                 border: 1px solid rgb(45, 29, 86);
                 background-color: white;
             }
+            
             #recherche input[type=text] {
                 width: 200px;
                 height: 30px;
                 border: none;
             }
+            
             #recherche input[type=submit]{
                 height: 30px;
                 width: 30px;
@@ -22,11 +27,13 @@
             } 
         </style> 
     </head>
+
     <body>
         <form action='recherche.php' method='POST' id='recherche'>
-            <input type='text'  name='motcle' placeholder=' Rechercher...'/>
+            <input type='text'  name='motcle' placeholder='Rechercher...'/>
             <input type='submit' value='&#x1F50E;&#xFE0E;'/>
         </form>
         <br><br>
     </body>  
+    
 </html>
