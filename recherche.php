@@ -3,10 +3,17 @@ require('connexion.php');
 require('titre.html');
 require ('menu.html');
 
-$motcle = $_POST['keywords'];
+$motcle = $_POST['motcle'];
 
 if (!empty($motcle)){
-    $sql = "SELECT * FROM produit WHERE NomProduit LIKE '%$motcle%' OR Categorie LIKE '%$motcle%' OR Marque LIKE '%$motcle%'"; 
+    $mots = explode(" ", trim($motcle));
+    $conditions = [];
+
+    foreach ($mots as $mot) {
+        $conditions[] = "(NomProduit LIKE '%$mot%' OR Categorie LIKE '%$mot%' OR Marque LIKE '%$mot%')";
+    }
+
+    $sql = "SELECT * FROM produit WHERE " . implode(" AND ", $conditions);
     $result = $conn->query($sql);
 
     echo "<p style='color: rgb(45, 29, 86);'><b>".$result->num_rows."</b> résultat(s) pour le mot clé: <b>'".$motcle."' </b></p><br>";
