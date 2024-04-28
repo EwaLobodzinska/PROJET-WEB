@@ -3,6 +3,7 @@ require('connexion.php');
 require('titre.html');
 require ('menu.html');
 
+#On démarre la session si ce n'est pas déjà fait.
 if (!isset($_SESSION['email']) and !isset($_SESSION['motpasse']) and !isset($_SESSION['numclient'])) {
     session_start();
 }
@@ -15,8 +16,7 @@ if ($resultquantite->num_rows > 0) {
     $sqlu = "UPDATE panier_details SET Quantite = Quantite + 1 WHERE NumPanier = {$_SESSION['numclient']} AND NumProduit = {$_POST['NumProduit']}";
     $resultp = $conn->query($sqlu);
     echo "<p style='color: red;'>Vous avez bien ajouté l'article à votre panier !</p>";
-}
-else {
+} else {
     $sqli = "INSERT INTO panier_details (NumPanier, NumProduit, Quantite) VALUES ({$_SESSION['numclient']}, {$_POST['NumProduit']}, 1)";
     $result = $conn->query($sqli);
     echo "<p style='color: red;'>Vous avez bien ajouté l'article à votre panier !</p><br>";
@@ -35,19 +35,19 @@ if ($resultmarque->num_rows > 0) {
         $result = $conn->query($sqlprop);
 
         if ($result->num_rows > 0) {
-            echo "<br><h2 style='color:rgb(45, 29, 86);'> Voir plus d'articles de la marque: ".$marque. "</h2>" ; 
+            echo "<br><h2 style='color: rgb(45, 29, 86);'> Voir plus d'articles de la marque : ".$marque. "</h2>"; 
             
-            #On affiche chaque article récupéré
+            #On affiche chaque article récupéré.
             while ($row = $result->fetch_assoc()) {
                 if ($row['Stock'] > 0){
                     echo "<div><h2 style='color: rgb(29, 86, 29);'>".$row["NomProduit"]."</h2>".
                     "<img src='".$row["Photo"]."'>".
-                    "<p><b>Prix: </b>".$row["Prix"]." € </p>".
-                    "<p><b>Catégorie: </b>".$row["Categorie"]."</p>".
-                    "<p><b>Marque: </b>".$row["Marque"]."</p>".
+                    "<p><b>Prix : </b>".$row["Prix"]." € </p>".
+                    "<p><b>Catégorie : </b>".$row["Categorie"]."</p>".
+                    "<p><b>Marque : </b>".$row["Marque"]."</p>".
                     "<p>Quantité disponible en stock: <b>".$row["Stock"]. "</b></p>".
                     "<form action='ajout_panier.php' method='POST'>".
-                    #Pour récupérer le numéro du produit à la page suivante on utilise : type='hidden'
+                    #Pour récupérer le numéro du produit à la page suivante on utilise : type='hidden'.
                     "<input type='hidden' name='NumProduit' value='".$row["NumProduit"] . "'>".
                     "<button type='submit'>Ajouter au panier</button></form></div><br>";
                 }
