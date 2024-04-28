@@ -39,4 +39,6 @@ if (!empty($motcle)){
             "<button type='submit'>Ajouter au panier</button></form></div><br>";
     }
 }
+
+$conn->close();
 ?>
