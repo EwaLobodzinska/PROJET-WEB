@@ -14,7 +14,7 @@ $datenaissance = $_POST['datenaiss'];
 $email = $_POST['email'];
 $tel = $_POST['tel'];
 $sexe = $_POST['sexe'];
-$motpass = $_POST['motpass'];
+$motpass = password_hash($_POST['motpass'], PASSWORD_DEFAULT);
 
 //la mise à jour des informations personnelles
 $sqlupdate = "UPDATE client SET NomClient = '$nom', PrenomClient = '$prenom', DateNaissance = '$datenaissance', Email = '$email', Telephone = '$tel', Sexe = '$sexe', MotDePasse ='$motpass'WHERE NumClient = {$_SESSION['numclient']}";
