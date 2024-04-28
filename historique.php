@@ -31,13 +31,14 @@ echo "<style>
     } 
 </style>";
 
+#On vérifie si des commandes ont été passées.
 $sql = "SELECT * FROM commande WHERE NumClient = {$_SESSION['numclient']}";
 $result = $conn -> query($sql);
 
 if ($result->num_rows > 0) {
     while ($rowcommande = $result->fetch_assoc()) { 
         echo "<table class='center' id='table1'> 
-            <tr >
+            <tr>
                 <td> Numéro de commande </th>
                 <td> Date </th>
                 <td> Prix Total </th>
@@ -45,10 +46,11 @@ if ($result->num_rows > 0) {
                 <tr>
                 <th>".$rowcommande['NumCommande']."</td>
                 <th>".$rowcommande['Date']."</td>
-                <th>".$rowcommande['PrixTotal']." € </td>
+                <th>".$rowcommande['PrixTotal']." €</td>
             </tr>
         </table>";
-    
+
+        #On récupère et affiche dans un tableau l'historique des commandes.
         $sqlproduits = "SELECT * FROM commande_details WHERE NumCommande = ".$rowcommande['NumCommande'];
         $resultproduits = $conn -> query($sqlproduits);
         
@@ -67,7 +69,7 @@ if ($result->num_rows > 0) {
             $resultarticle = $conn->query($sqlarticle);
 
             while ($article = $resultarticle->fetch_assoc()) {
-                echo '<tr> ';
+                echo '<tr>';
                     echo '<td> <img src="'.$article["Photo"].'"> </td>';
                     echo '<td>'. $numProduit.'</td>';
                     echo '<td>'. $article["NomProduit"] . '</td>';
@@ -76,10 +78,9 @@ if ($result->num_rows > 0) {
                 echo '</tr>';
             }
         }
-        echo '</table> <br><br>';
+        echo '</table><br><br>';
     }
-}
-else {
+} else {
     echo "Vous n'avez pas encore effectué de commande.<br><br>";
 }
 
