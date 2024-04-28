@@ -2,6 +2,7 @@
 require('connexion.php');
 require('titre.html');
 require ('menu.html');
+require('barre_recherche.html');
 
 #On récupère le mot-clé saisi par l'utilisateur.
 $motcle = $_POST['motcle'];
