@@ -2,7 +2,7 @@
 require('titre.html'); 
 require ('connexion.php');
 
-#On récupere les informations du formulaire HTML
+#On récupere les informations du formulaire HTML.
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $datenaissance = $_POST['datenaiss'];
