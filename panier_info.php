@@ -14,11 +14,12 @@ $resultupdate = $conn->query($sql);
 
 $sqltotal = "SELECT PrixTotal FROM panier WHERE NumPanier = {$_SESSION['numclient']};
 $resulttotal = $conn->query($sqltotal);
+$total = $resulttotal->fetch_assoc();
 
-#On vérifie si le panier est vide ou pas
+#On peut passer commande si le panier n'est pas vide.
 if ($total["PrixTotal"] > 0) {
-        echo "<h3> Prix total à payer: " . $total["PrixTotal"] . " € </h3>";
-        echo "<button> <a href='commande.php?' style='color: black'> Commander </a></button><br><br>";
+        echo "<h3>Prix total à payer : " . $total["PrixTotal"] . " €</h3>".
+        "<button><a href='commande.php' style='color: black'>Commander</a></button><br><br>";
 }
 
 #On affiche les articles du panier
@@ -29,6 +30,7 @@ if ($resultpanier->num_rows > 0) {
     while ($row = $resultpanier->fetch_assoc()) {
         echo "<div>";
         $numProduit = $row["NumProduit"];
+        #On récupère les informations sur les produits du panier
         $sqlarticle = "SELECT * FROM produit WHERE NumProduit = $numProduit";
         $resultarticle = $conn->query($sqlarticle);
         while ($article = $resultarticle->fetch_assoc()) {
