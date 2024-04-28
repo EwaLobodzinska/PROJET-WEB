@@ -13,12 +13,14 @@
                 background-attachment: fixed;
                 background-size: cover;
         } 
+        
         form{
             background-color: #b6bfa2;
             width: 50%;
             margin-left: auto;
             margin-right: auto;
         }
+        
         h1{
             padding: 20px 0px;
             border-bottom: 2px inset rgb(29, 86, 29); 
@@ -27,10 +29,13 @@
             text-align: center;
             margin-top: 20px;
         }
+        
         p{
             font-size: 20px;
         }
-        p, h3{
+        
+        p, 
+        h3{
             text-align:center;
             margin: 20px 100px;
         }
@@ -41,53 +46,46 @@
     <div>
         <!-- Présentation du site -->
         <h1>Pas Hors de Prix</h1>
-        <p>Bienvenue sur un site de vente de vêtements pas hors de prix (PHP) ! Vous trouverez ici des bonnes marques à un bon prix ! Vous êtes invités à choisir des vêtements qui vous plaisent et à les acheter facilement.</p>
+        <p>Bienvenue sur un site de vente de vêtements pas hors de prix (PHP) ! Vous trouverez ici des bonnes marques à 
+            un bon prix ! Vous êtes invités à choisir des vêtements qui vous plaisent et à les acheter facilement.</p>
         <h3>Se connecter ou créer votre compte pour pouvoir facilement effectuer des achats.</h3>
 
         <!-- Formulaire pour se connecter à un compte existant -->
         <form action="connexion_compte.php" method="POST">
             <fieldset>
-            <legend><b>Se connecter</b></legend>
-            <label id="email">Entrez votre adresse mail</label>
-            <input type="email" id="email" name="email">
-            <br>
-            <label id="motpasse">Entrez votre mot de passe</label>
-            <input type="password" id="motpasse" name="motpasse">
-            <button>Se connecter</button>
+                <legend><b>Se connecter</b></legend>
+                <label id="email">Entrez votre adresse mail</label>
+                <input type="email" id="email" name="email"><br>
+                <label id="motpasse">Entrez votre mot de passe</label>
+                <input type="password" id="motpasse" name="motpasse">
+                <button>Se connecter</button>
             </fieldset>
-        </form>
-        <br>
+        </form><br>
 
         <!-- Formulaire pour créer un compte -->
         <form action="creation_compte.php" method="POST">
             <fieldset>
-            <legend><b>Créer un compte</b></legend>
-            <label id="prenom">Entrez votre prénom</label>
-            <input type ="text" id="prenom" name="prenom">
-            <br>
-            <label id="nom">Entrez votre nom</label>
-            <input type ="text" id="nom" name="nom">
-            <br>
-            <label id="datenaiss">Entrez votre date de naissance</label>
-            <input type ="date" id="datenaiss" name="datenaiss">
-            <br>
-            <label id="email">Entrez votre adresse mail</label>
-            <input type ="text" id="email" name="email">
-            <br>
-            <label id="tel">Entrez votre numéro de télephone</label>
-            <input type ="text" id="tel" name="tel">
-            <br>
-            <label id="sexe">Choisissez votre sexe</label>
-            <select name="sexe">
-                <option value="femme"> Femme </option>
-                <option value="homme"> Homme </option>
-                <option value="autre"> Autre </option>
-            </select>
-            <br>
-            <label id="motpass">Entrez votre mot de passe </label>
-            <input type ="password" id="motpass" name="motpass">
-            <button>Créer compte</button>
-        </fieldset>
+                <legend><b>Créer un compte</b></legend>
+                <label id="prenom">Entrez votre prénom</label>
+                <input type ="text" id="prenom" name="prenom"><br>
+                <label id="nom">Entrez votre nom</label>
+                <input type ="text" id="nom" name="nom"><br>
+                <label id="datenaiss">Entrez votre date de naissance</label>
+                <input type ="date" id="datenaiss" name="datenaiss"><br>
+                <label id="email">Entrez votre adresse mail</label>
+                <input type ="text" id="email" name="email"><br>
+                <label id="tel">Entrez votre numéro de télephone</label>
+                <input type ="text" id="tel" name="tel"><br>
+                <label id="sexe">Choisissez votre sexe</label>
+                <select name="sexe">
+                    <option value="femme">Femme</option>
+                    <option value="homme">Homme</option>
+                    <option value="autre">Autre</option>
+                </select><br>
+                <label id="motpass">Entrez votre mot de passe </label>
+                <input type ="password" id="motpass" name="motpass">
+                <button>Créer compte</button>
+            </fieldset>
         </form>
         
     </div>
