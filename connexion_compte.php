@@ -15,7 +15,7 @@ if (isset($_POST['email']) and isset($_POST['motpasse'])) {
         # Vérification du mot de passe
         if (password_verify($mdp, $row[2])) {
             echo "<br><p style='color: rgb(45, 29, 86);'>Vous êtes bien connectés ! Pour continuer, cliquez sur le bouton :)</p><br>" .
-                "<button><a href='produits.php'>Voir des articles</a></button>";
+                "<button><a href='produits.php' style='color: black'>Voir des articles</a></button>";
             #Pour toujours avoir l'identité du client enregistré, on utilise la superglobale SESSION
             session_start();
             $_SESSION['email'] = $mail;
