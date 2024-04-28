@@ -54,7 +54,7 @@ echo "<h1 style='color: rgb(45, 29, 86);'>Profil</h1>".
                 </select>
                 <br>
                 <label id="motpass">Votre mot de passe</label>
-                <input type ="password" id="motpass" name="motpass" value="<?php echo $row['MotDePasse']; ?>">
+                <input type ="password" id="motpass" name="motpass">
                 <button>Changer</button>
             </fieldset>
         </form>
